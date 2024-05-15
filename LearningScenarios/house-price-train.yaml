@@ -3,7 +3,13 @@ kind: WorkflowTemplate
 metadata:
   name: ejecutar-main
   annotations:
-    scenarios.ai.sap.com/description: "Ejecutar un script Python dentro de un contenedor Docker"
+    scenarios.ai.sap.com/description: "Devuelve 2 python"
+    scenarios.ai.sap.com/name: "Devuelve 2 python"
+    executables.ai.sap.com/description: "Devuelve 2 python"
+    executables.ai.sap.com/name: "Devuelve 2 python" # Executable name should describe the workflow in the use case
+  labels:
+    scenarios.ai.sap.com/id: "devuelve-dos"
+    ai.sap.com/version: "1.0"
 spec:
   entrypoint: ejecutar-main
   templates:
