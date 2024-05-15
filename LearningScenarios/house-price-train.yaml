@@ -3,7 +3,7 @@ kind: WorkflowTemplate
 metadata:
   name: ejecutar-main
   annotations:
-    scenarios.ai.sap.com/description: "Devuelve2 python"
+    scenarios.ai.sap.com/description: "Devuelve3 python"
     scenarios.ai.sap.com/name: "Devuelve 2 python"
     executables.ai.sap.com/description: "Devuelve 2 python"
     executables.ai.sap.com/name: "Devuelve 2 python" # Executable name should describe the workflow in the use case
