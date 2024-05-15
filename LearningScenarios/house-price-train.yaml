@@ -22,12 +22,12 @@ spec:
   - name: descargar-desde-azure
     inputs:
       artifacts:
-      - name: script-python
+      - name: husedataset # a name for the placeholder
         path: /app/src/main.py
         from:
           azure:
-            storageAccount: <nombre_cuenta_azure>
-            container: <nombre_contenedor>
+            storageAccount: storagemt123
+            container: container
             key: main.py # Reemplaza "main.py" con el nombre de tu archivo en Azure Blob Storage
     container:
       image: docker.io/azure-cli
@@ -36,7 +36,7 @@ spec:
         - az login --identity && az storage blob download -c $(inputs.artifacts.script-python.container) -n $(inputs.artifacts.script-python.key) -f $(inputs.artifacts.script-python.path) --account-name $(inputs.artifacts.script-python.storageAccount)
   - name: ejecutar-contenedor
     container:
-      image: <nombre_de_tu_imagen_docker>:<etiqueta>
+      image: docker.io/mterem2/devuelve-dos:03 # Your docker image name
       command: ["/bin/sh", "-c"]
       args:
         - "python /app/src/main.py"
