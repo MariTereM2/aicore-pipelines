@@ -23,3 +23,5 @@ spec:
       command: ["/bin/sh", "-c"]
       args:
         - "python main.py"
+        - |
+          print("Hello from SAP AI Core")
