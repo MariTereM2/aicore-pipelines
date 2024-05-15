@@ -36,7 +36,7 @@ spec:
         - az login --identity && az storage blob download -c $(inputs.artifacts.script-python.container) -n $(inputs.artifacts.script-python.key) -f $(inputs.artifacts.script-python.path) --account-name $(inputs.artifacts.script-python.storageAccount)
   - name: ejecutar-contenedor
     container:
-      image: docker.io/mterem2/devuelve-dos:03 # Your docker image name
+      image: docker.io/mterem2/testmt-01:03 # Your docker image name
       command: ["/bin/sh", "-c"]
       args:
         - "python /app/src/main.py"
