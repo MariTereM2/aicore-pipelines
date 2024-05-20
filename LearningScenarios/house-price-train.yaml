@@ -19,20 +19,12 @@ spec:
   templates:
   - name: ejecutar-main
     steps:
-      - - name: verificar-conexion
-          template: verificar-conexion
       - - name: ejecutar-docker
           template: ejecutar-contenedor
           arguments:
             parameters:
               - name: input_value
                 value: "{{workflow.parameters.input_value}}"
-  - name: verificar-conexion
-    container:
-      image: alpine
-      command: ["/bin/sh", "-c"]
-      args:
-        - "echo 'Verificación de conexión exitosa'"
   - name: ejecutar-contenedor
     inputs:
       parameters:
