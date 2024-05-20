@@ -15,7 +15,7 @@ spec:
   arguments:
     parameters:
       - name: input_value
-        value: "default_value" # Valor por defecto, puedes cambiarlo según tus necesidades
+        value: "default_value"
   templates:
   - name: ejecutar-main
     steps:
@@ -38,7 +38,9 @@ spec:
       parameters:
         - name: input_value
     container:
-      image: docker.io/mterem2/testmt-04:03 # El nombre de tu imagen Docker
+      image: docker.io/mterem2/testmt-04:03
       command: ["/bin/sh", "-c"]
       args:
+        - "python main.py {{inputs.parameters.input_value}}"
+
         - "python main.py {{inputs.parameters.input_value}}"
