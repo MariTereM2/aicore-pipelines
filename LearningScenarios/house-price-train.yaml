@@ -30,7 +30,7 @@ spec:
       parameters:
         - name: input_value
     container:
-      image: docker.io/mterem2/testmt-07:03
+      image: docker.io/mterem2/testmt-08:03
       command: ["/bin/sh", "-c"]
       args:
         - "python main.py {{inputs.parameters.input_value}}"
