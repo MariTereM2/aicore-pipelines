@@ -6,7 +6,7 @@ metadata:
     scenarios.ai.sap.com/description: "Devuelve3 python"
     scenarios.ai.sap.com/name: "Devuelve 2 python"
     executables.ai.sap.com/description: "Devuelve 2 python"
-    executables.ai.sap.com/name: "Devuelve 2 python" # Executable name should describe the workflow in the use case
+    executables.ai.sap.com/name: "Devuelve 2 python" # El nombre del ejecutable debería describir el flujo de trabajo en el caso de uso
   labels:
     scenarios.ai.sap.com/id: "devuelve-dos"
     ai.sap.com/version: "1.0"
@@ -15,7 +15,7 @@ spec:
   arguments:
     parameters:
       - name: input_value
-        value: "default_value" # Valor por defecto, puedes cambiarlo según tus necesidades
+        value: "default_value2" # Valor por defecto, puedes cambiarlo según tus necesidades
   templates:
   - name: ejecutar-main
     steps:
@@ -30,7 +30,7 @@ spec:
       parameters:
         - name: input_value
     container:
-      image: docker.io/mterem2/testmt-04:03 # Your docker image name
+      image: docker.io/mterem2/testmt-04:03 # El nombre de tu imagen Docker
       command: ["/bin/sh", "-c"]
       args:
         - "python main.py {{inputs.parameters.input_value}}"
