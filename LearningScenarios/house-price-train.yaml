@@ -19,7 +19,7 @@ spec:
         template: ejecutar-contenedor
   - name: ejecutar-contenedor
     container:
-      image: docker.io/mterem2/testmt-03:03 # Your docker image name
+      image: docker.io/mterem2/testmt-04:03 # Your docker image name
       command: ["/bin/sh", "-c"]
       args:
         - "python main.py"
