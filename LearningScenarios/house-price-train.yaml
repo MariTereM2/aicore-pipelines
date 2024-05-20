@@ -42,5 +42,3 @@ spec:
       command: ["/bin/sh", "-c"]
       args:
         - "python main.py {{inputs.parameters.input_value}}"
-
-        - "python main.py {{inputs.parameters.input_value}}"
