@@ -3,19 +3,19 @@ kind: WorkflowTemplate
 metadata:
   name: ejecutar-main
   annotations:
-    scenarios.ai.sap.com/description: "Devuelve3 python"
-    scenarios.ai.sap.com/name: "Devuelve 2 python"
-    executables.ai.sap.com/description: "Devuelve 2 python"
-    executables.ai.sap.com/name: "Devuelve 2 python" # El nombre del ejecutable debería describir el flujo de trabajo en el caso de uso
+    scenarios.ai.sap.com/description: "Parametro de Entrada"
+    scenarios.ai.sap.com/name: "Parametro de Entrada"
+    executables.ai.sap.com/description: "Parametro de Entrada"
+    executables.ai.sap.com/name: "Parametro de Entrada" # El nombre del ejecutable debería describir el flujo de trabajo en el caso de uso
   labels:
-    scenarios.ai.sap.com/id: "devuelve-dos"
+    scenarios.ai.sap.com/id: "parametro-entrada"
     ai.sap.com/version: "1.0"
 spec:
   entrypoint: ejecutar-main
   arguments:
     parameters:
       - name: input_value
-        value: "default_value2" # Valor por defecto, puedes cambiarlo según tus necesidades
+        value: "default_value" # Valor por defecto, puedes cambiarlo según tus necesidades
   templates:
   - name: ejecutar-main
     steps:
