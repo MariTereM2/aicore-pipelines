@@ -12,16 +12,25 @@ metadata:
     ai.sap.com/version: "1.0"
 spec:
   entrypoint: ejecutar-main
+  arguments:
+    parameters:
+      - name: input_value
+        value: "default_value" # Valor por defecto, puedes cambiarlo según tus necesidades
   templates:
   - name: ejecutar-main
     steps:
     - - name: ejecutar-docker
         template: ejecutar-contenedor
+        arguments:
+          parameters:
+            - name: input_value
+              value: "{{workflow.parameters.input_value}}"
   - name: ejecutar-contenedor
+    inputs:
+      parameters:
+        - name: input_value
     container:
       image: docker.io/mterem2/testmt-04:03 # Your docker image name
       command: ["/bin/sh", "-c"]
       args:
-        - "python main.py"
-        - |
-          print("Hello from SAP AI Core")
+        - "python main.py {{inputs.parameters.input_value}}"
