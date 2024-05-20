@@ -6,7 +6,7 @@ metadata:
     scenarios.ai.sap.com/description: "Parametro de Entrada"
     scenarios.ai.sap.com/name: "Parametro de Entrada"
     executables.ai.sap.com/description: "Parametro de Entrada"
-    executables.ai.sap.com/name: "Parametro de Entrada" # El nombre del ejecutable debería describir el flujo de trabajo en el caso de uso
+    executables.ai.sap.com/name: "Parametro de Entrada"
   labels:
     scenarios.ai.sap.com/id: "parametro-entrada"
     ai.sap.com/version: "1.0"
@@ -15,7 +15,6 @@ spec:
   arguments:
     parameters:
       - name: input_value
-        value: "default_value" # Valor por defecto, puedes cambiarlo según tus necesidades
   templates:
   - name: ejecutar-main
     steps:
@@ -32,5 +31,9 @@ spec:
     container:
       image: docker.io/mterem2/testmt-04:03 # El nombre de tu imagen Docker
       command: ["/bin/sh", "-c"]
+      env:
+        - name: INPUT_VALUE # nombre de la variable de entorno dentro del contenedor Docker
+          value: "{{inputs.parameters.input_value}}" # valor a establecer desde la variable local al flujo de trabajo
       args:
-        - "python main.py {{inputs.parameters.input_value}}"
+        - "python main.py $INPUT_VALUE"
+
