@@ -11,19 +11,22 @@ metadata:
     scenarios.ai.sap.com/id: "parametro-entrada"
     ai.sap.com/version: "1.0"
 spec:
+  imagePullSecrets:
+      - name: credstutorialrepo # your docker registry secret
   entrypoint: ejecutar-main
   arguments:
     parameters:
       - name: input_value
+        value: "default_value" # Valor por defecto, puedes cambiarlo según tus necesidades
   templates:
   - name: ejecutar-main
     steps:
-    - - name: ejecutar-docker
-        template: ejecutar-contenedor
-        arguments:
-          parameters:
-            - name: input_value
-              value: "{{workflow.parameters.input_value}}"
+      - - name: ejecutar-docker
+          template: ejecutar-contenedor
+          arguments:
+            parameters:
+              - name: input_value
+                value: "{{workflow.parameters.input_value}}"
   - name: ejecutar-contenedor
     inputs:
       parameters:
@@ -32,8 +35,8 @@ spec:
       image: docker.io/mterem2/testmt-04:03 # El nombre de tu imagen Docker
       command: ["/bin/sh", "-c"]
       env:
-        - name: INPUT_VALUE # nombre de la variable de entorno dentro del contenedor Docker
-          value: "{{inputs.parameters.input_value}}" # valor a establecer desde la variable local al flujo de trabajo
+        - name: INPUT_VALUE
+          value: "{{inputs.parameters.input_value}}"
       args:
         - "python main.py $INPUT_VALUE"
 
